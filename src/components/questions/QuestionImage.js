@@ -7,7 +7,7 @@ const Image = styled.img`
 `;
 
 Image.defaultProps = {
-  src: "/image1.jpg",
+  src: "/image0.jpg",
 };
 
 const QuestionImage = () => {

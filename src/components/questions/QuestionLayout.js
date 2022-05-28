@@ -11,15 +11,13 @@ const Pane = styled.div`
   flex: 1;
 `;
 
-const QuestionLayout = ({ left: Left, right: Right }) => {
+const QuestionLayout = ({ children }) => {
+  const [left, right] = children;
+
   return (
     <Layout>
-      <Pane>
-        <Left />
-      </Pane>
-      <Pane>
-        <Right />
-      </Pane>
+      <Pane>{left}</Pane>
+      <Pane>{right}</Pane>
     </Layout>
   );
 };

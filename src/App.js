@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import QuestionLayout from "./components/questions/QuestionLayout";
+import QuestionImage from "./components/questions/QuestionImage";
+import ControlledFlowQuestion from "./components/questions/ControlledFlowQuestion";
+import QuestionOne from "./components/questions/QuestionOne";
+import QuestionTwo from "./components/questions/QuestionTwo";
+import QuestionThree from "./components/questions/QuestionThree";
+import QuestionFour from "./components/questions/QuestionFour";
 
 function App() {
+  const [answersData, setAnswersData] = useState({});
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const onNext = (answerData) => {
+    setAnswersData({ ...answersData, ...answerData });
+    setCurrentIndex(currentIndex + 1);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QuestionLayout>
+      <QuestionImage />
+      <ControlledFlowQuestion currentIndex={currentIndex} onNext={onNext}>
+        <QuestionOne />
+        <QuestionTwo />
+        <QuestionThree />
+        <QuestionFour />
+      </ControlledFlowQuestion>
+    </QuestionLayout>
   );
 }
 
