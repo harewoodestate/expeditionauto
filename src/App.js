@@ -15,6 +15,7 @@ import QuestionEight from "./components/questions/QuestionEight";
 import ThankYou from "./components/questions/ThankYou";
 import { useDispatch } from "react-redux";
 import { saveData } from "./features/survey";
+import { Link } from "react-router-dom";
 
 const LogoImage = styled.div`
   background-image: url("/logo.svg");
@@ -64,6 +65,7 @@ function App() {
   return (
     <>
       <LogoImage />
+      <Link to="/admin">Admin</Link>
       <QuestionLayout>
         <QuestionImage />
         <ControlledFlowQuestion

@@ -6,6 +6,8 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DashboardLayout from "./components/admin/DashboardLayout";
 
 let persistor = persistStore(store);
 
@@ -14,7 +16,12 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={<div>Loading...</div>} persistor={persistor}>
-        <App />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/admin" element={<DashboardLayout />} />
+          </Routes>
+        </BrowserRouter>
       </PersistGate>
     </Provider>
   </React.StrictMode>
