@@ -21,7 +21,8 @@ label {
   text-align: left;
 }
 
-input {
+input,
+select {
   height: 4em;
   box-sizing: border-box;
 }

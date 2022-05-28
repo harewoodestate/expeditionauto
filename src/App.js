@@ -8,6 +8,10 @@ import QuestionOne from "./components/questions/QuestionOne";
 import QuestionTwo from "./components/questions/QuestionTwo";
 import QuestionThree from "./components/questions/QuestionThree";
 import QuestionFour from "./components/questions/QuestionFour";
+import QuestionFive from "./components/questions/QuestionFive";
+import QuestionSix from "./components/questions/QuestionSix";
+import QuestionSeven from "./components/questions/QuestionSeven";
+import QuestionEight from "./components/questions/QuestionEight";
 
 const LogoImage = styled.div`
   background-image: url("/logo.svg");
@@ -51,6 +55,10 @@ function App() {
           <QuestionTwo />
           <QuestionThree />
           <QuestionFour />
+          <QuestionFive />
+          <QuestionSix />
+          <QuestionSeven />
+          <QuestionEight />
         </ControlledFlowQuestion>
       </QuestionLayout>
     </>

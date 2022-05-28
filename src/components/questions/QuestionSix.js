@@ -9,20 +9,20 @@ const StyledForm = styled.div`
   gap: 1.5em;
 `;
 
-const QuestionFour = ({ goToNext }) => {
-  const [firstCarAnswer, setFirstCarAnswer] = useState();
+const QuestionSix = ({ goToNext }) => {
+  const [fuelEmissionsAnswer, setFuelEmissionsrAnswer] = useState();
 
   const handleYes = () => {
-    setFirstCarAnswer("yes");
+    setFuelEmissionsrAnswer("yes");
   };
 
   const handleNo = () => {
-    setFirstCarAnswer("no");
+    setFuelEmissionsrAnswer("no");
   };
 
   return (
     <StyledForm>
-      <label htmlFor="license">Is this your first car?</label>
+      <label htmlFor="license">Are you worried about fuel emissions?</label>
       <label htmlFor="yes" className="radio-label">
         <input id="yes" type="radio" name="license" onChange={handleYes} /> Yes
       </label>
@@ -32,8 +32,8 @@ const QuestionFour = ({ goToNext }) => {
       <button
         onClick={(e) => {
           goToNext({
-            questionFour: "Is this your first car?",
-            answerFour: firstCarAnswer,
+            questionSix: "Are you worried about fuel emissions?",
+            answerSix: fuelEmissionsAnswer,
           });
           e.preventDefault();
         }}
@@ -44,4 +44,4 @@ const QuestionFour = ({ goToNext }) => {
   );
 };
 
-export default QuestionFour;
+export default QuestionSix;
