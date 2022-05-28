@@ -12,6 +12,7 @@ import QuestionFive from "./components/questions/QuestionFive";
 import QuestionSix from "./components/questions/QuestionSix";
 import QuestionSeven from "./components/questions/QuestionSeven";
 import QuestionEight from "./components/questions/QuestionEight";
+import ThankYou from "./components/questions/ThankYou";
 
 const LogoImage = styled.div`
   background-image: url("/logo.svg");
@@ -23,10 +24,22 @@ const LogoImage = styled.div`
 
 function App() {
   const [answersData, setAnswersData] = useState({});
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const onNext = (answerData) => {
-    setAnswersData({ ...answersData, ...answerData });
-    setCurrentIndex(currentIndex + 1);
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const onNext = (answerData, childrenCount) => {
+    const updatedData = { ...answersData, ...answerData };
+    setAnswersData(updatedData);
+    if (currentIndex < childrenCount) {
+      setCurrentIndex(currentIndex + 1);
+      console.log("Index", currentIndex);
+    }
+    // Logic compensates for Thank you component which makes children 9
+    if (currentIndex === childrenCount - 1) {
+      onFinish(updatedData);
+    }
+  };
+
+  const onFinish = (data) => {
+    console.log(data);
   };
 
   useEffect(() => {
@@ -50,7 +63,11 @@ function App() {
       <LogoImage />
       <QuestionLayout>
         <QuestionImage />
-        <ControlledFlowQuestion currentIndex={currentIndex} onNext={onNext}>
+        <ControlledFlowQuestion
+          currentIndex={currentIndex}
+          onNext={onNext}
+          onFinish={onFinish}
+        >
           <QuestionOne />
           <QuestionTwo />
           <QuestionThree />
@@ -59,6 +76,7 @@ function App() {
           <QuestionSix />
           <QuestionSeven />
           <QuestionEight />
+          <ThankYou />
         </ControlledFlowQuestion>
       </QuestionLayout>
     </>

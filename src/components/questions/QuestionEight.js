@@ -11,7 +11,7 @@ const StyledForm = styled.div`
 `;
 
 const QuestionEight = ({ goToNext }) => {
-  const [carMakeAnswer, setCarMakeAnswer] = useState();
+  const [carMakeAnswer, setCarMakeAnswer] = useState("BMW");
   const carModelAnswer = React.createRef();
 
   return (
