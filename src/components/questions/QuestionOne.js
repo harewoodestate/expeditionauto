@@ -20,7 +20,6 @@ const QuestionOne = ({ goToNext }) => {
       <button
         onClick={(e) => {
           goToNext({
-            q1: "What is your age?",
             a1: ageAnswer.current.value,
           });
           e.preventDefault();

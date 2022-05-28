@@ -9,7 +9,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import rootReducer from "./features/reducers";
+import rootReducer from "./features/survey";
 
 const persistConfig = {
   key: "root",

@@ -13,6 +13,8 @@ import QuestionSix from "./components/questions/QuestionSix";
 import QuestionSeven from "./components/questions/QuestionSeven";
 import QuestionEight from "./components/questions/QuestionEight";
 import ThankYou from "./components/questions/ThankYou";
+import { useDispatch } from "react-redux";
+import { saveData } from "./features/survey";
 
 const LogoImage = styled.div`
   background-image: url("/logo.svg");
@@ -23,6 +25,7 @@ const LogoImage = styled.div`
 `;
 
 function App() {
+  const dispatch = useDispatch();
   const [answersData, setAnswersData] = useState({});
   const [currentIndex, setCurrentIndex] = useState(1);
   const onNext = (answerData, childrenCount) => {
@@ -38,8 +41,8 @@ function App() {
     }
   };
 
-  const onFinish = (data) => {
-    console.log(data);
+  const onFinish = (surveyData) => {
+    dispatch(saveData(surveyData));
   };
 
   useEffect(() => {
