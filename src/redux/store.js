@@ -9,6 +9,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import rootReducer from "./reducers";
 
 const persistConfig = {
   key: "root",
@@ -16,9 +17,7 @@ const persistConfig = {
   storage,
 };
 
-const reducers = {};
-
-const persistedReducer = persistReducer(persistConfig, reducers);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
   reducer: persistedReducer,
