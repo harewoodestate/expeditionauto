@@ -32,8 +32,8 @@ const QuestionFour = ({ goToNext }) => {
       <button
         onClick={(e) => {
           goToNext({
-            questionFour: "Is this your first car?",
-            answerFour: firstCarAnswer,
+            q4: "Is this your first car?",
+            a4: firstCarAnswer,
           });
           e.preventDefault();
         }}

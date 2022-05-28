@@ -58,8 +58,8 @@ const QuestionTwo = ({ goToNext }) => {
       <button
         onClick={(e) => {
           goToNext({
-            questionTwo: "What is your gender?",
-            answerTwo: genderAnswer,
+            q2: "What is your gender?",
+            a2: genderAnswer,
           });
           e.preventDefault();
         }}

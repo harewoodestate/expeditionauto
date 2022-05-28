@@ -32,8 +32,8 @@ const QuestionSix = ({ goToNext }) => {
       <button
         onClick={(e) => {
           goToNext({
-            questionSix: "Are you worried about fuel emissions?",
-            answerSix: fuelEmissionsAnswer,
+            q6: "Are you worried about fuel emissions?",
+            a6: fuelEmissionsAnswer,
           });
           e.preventDefault();
         }}

@@ -22,8 +22,8 @@ const QuestionSeven = ({ goToNext }) => {
       <button
         onClick={(e) => {
           goToNext({
-            questionSeven: "How many cars do you have in your family?",
-            answerSeven: carsOwnedAnswer.current.value,
+            q7: "How many cars do you have in your family?",
+            a7: carsOwnedAnswer.current.value,
           });
           e.preventDefault();
         }}

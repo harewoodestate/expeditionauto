@@ -33,8 +33,8 @@ const QuestionThree = ({ goToNext }) => {
       <button
         onClick={(e) => {
           goToNext({
-            questionThree: "Do you own a car driving license?",
-            answerThree: licenseAnswer,
+            q3: "Do you own a car driving license?",
+            a3: licenseAnswer,
           });
           e.preventDefault();
         }}

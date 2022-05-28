@@ -40,8 +40,8 @@ const QuestionFive = ({ goToNext }) => {
       <button
         onClick={(e) => {
           goToNext({
-            questionFive: "Which drivetrain do you prefer?",
-            answerFive: drivetrainAnswer,
+            q5: "Which drivetrain do you prefer?",
+            a5: drivetrainAnswer,
           });
           e.preventDefault();
         }}

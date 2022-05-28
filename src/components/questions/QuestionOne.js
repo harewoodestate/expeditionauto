@@ -20,8 +20,8 @@ const QuestionOne = ({ goToNext }) => {
       <button
         onClick={(e) => {
           goToNext({
-            questionOne: "What is your age?",
-            answerOne: ageAnswer.current.value,
+            q1: "What is your age?",
+            a1: ageAnswer.current.value,
           });
           e.preventDefault();
         }}

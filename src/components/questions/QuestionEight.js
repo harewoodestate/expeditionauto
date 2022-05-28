@@ -35,8 +35,8 @@ const QuestionEight = ({ goToNext }) => {
       <button
         onClick={(e) => {
           goToNext({
-            questionEight: "Which car make and model do you drive?",
-            answerEight: `${carMakeAnswer} ${carModelAnswer.current.value}`,
+            q8: "Which car make and model do you drive?",
+            a8: `${carMakeAnswer} ${carModelAnswer.current.value}`,
           });
           e.preventDefault();
         }}
