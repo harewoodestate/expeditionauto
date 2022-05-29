@@ -10,9 +10,12 @@ const StyledForm = styled.div`
   gap: 1.5em;
 `;
 
-const QuestionEight = ({ goToNext }) => {
+const QuestionEight = ({ goToNext, carsOwned }) => {
   const [carMakeAnswer, setCarMakeAnswer] = useState("BMW");
-  const carModelAnswer = React.createRef();
+  const [carModelAnswer, setCarModelAnswer] = useState("");
+  const [carMakeAndModels, setCarMakeAndModels] = useState([]);
+  const [numberOfCars, setNumberOfCars] = useState(carsOwned);
+  //const carModelAnswer = React.createRef();
 
   return (
     <StyledForm>
@@ -29,14 +32,36 @@ const QuestionEight = ({ goToNext }) => {
       <input
         name="model"
         type="text"
-        ref={carModelAnswer}
-        placeholder={`Enter ${carMakeAnswer} Model Number`}
+        onChange={(e) => setCarModelAnswer(e.target.value)}
+        placeholder={`Enter your ${carMakeAnswer} Model Number`}
       />
+      <p className="message">
+        {(numberOfCars && `You have ${numberOfCars} more to enter`) ||
+          "Click next to finish"}
+      </p>
       <button
         onClick={(e) => {
-          goToNext({
-            a8: `${carMakeAnswer} ${carModelAnswer.current.value}`,
-          });
+          let carMakeAndModelsObject = {
+            make: `${carMakeAnswer}`,
+            model: `${carModelAnswer}`,
+          };
+
+          let updatedCarMakeAndModel = {
+            ...carMakeAndModels,
+            ...carMakeAndModelsObject,
+          };
+
+          setCarMakeAndModels(updatedCarMakeAndModel);
+
+          setNumberOfCars(Number(numberOfCars - 1));
+
+          console.log(numberOfCars);
+
+          if (!numberOfCars) {
+            goToNext({
+              a8: carMakeAndModels,
+            });
+          }
           e.preventDefault();
         }}
       >

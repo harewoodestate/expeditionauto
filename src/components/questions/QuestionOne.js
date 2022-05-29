@@ -15,13 +15,18 @@ const QuestionOne = ({ goToNext }) => {
   return (
     <StyledForm>
       <label htmlFor="age">What is your age?</label>
-      <input name="age" type="number" ref={ageAnswer} />
+      <input name="age" type="number" min="0" max="100" ref={ageAnswer} />
 
       <button
         onClick={(e) => {
-          goToNext({
-            a1: Number(ageAnswer.current.value),
-          });
+          if (
+            Number(ageAnswer.current.value) >= 0 &&
+            Number(ageAnswer.current.value) <= 100
+          ) {
+            goToNext({
+              a1: Number(ageAnswer.current.value),
+            });
+          }
           e.preventDefault();
         }}
       >

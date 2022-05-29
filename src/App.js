@@ -96,7 +96,7 @@ function App() {
           <QuestionFive />
           <QuestionSix />
           <QuestionSeven />
-          <QuestionEight />
+          <QuestionEight carsOwned={answersData.a7} />
           <ThankYou />
         </ControlledFlowQuestion>
       </QuestionLayout>
