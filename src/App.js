@@ -32,13 +32,37 @@ function App() {
   const onNext = (answerData, childrenCount) => {
     const updatedData = { ...answersData, ...answerData };
     setAnswersData(updatedData);
-    if (currentIndex < childrenCount) {
-      setCurrentIndex(currentIndex + 1);
-      console.log("Index", currentIndex);
-    }
-    // Logic compensates for Thank you component which makes children 9
-    if (currentIndex === childrenCount - 1) {
-      onFinish(updatedData);
+    // if (currentIndex < childrenCount) {
+    //   setCurrentIndex(currentIndex + 1);
+    // }
+    // // Logic compensates for Thank you component which makes children 9
+    // if (currentIndex === childrenCount - 1) {
+    //   onFinish(updatedData);
+    // }
+
+    switch (true) {
+      case answerData.a1 < 18:
+        setCurrentIndex(9);
+        onFinish(updatedData);
+        break;
+      case answerData.a3 === "no":
+        setCurrentIndex(9);
+        onFinish(updatedData);
+        break;
+      case answerData.a1 > 18 && answerData.a1 < 25:
+        setCurrentIndex(currentIndex + 1);
+        break;
+      case answerData.a4 === "yes":
+        setCurrentIndex(9);
+        onFinish(updatedData);
+        break;
+      case currentIndex < childrenCount - 1:
+        setCurrentIndex(currentIndex + 1);
+        break;
+      default:
+        setCurrentIndex(9);
+        onFinish(updatedData);
+        break;
     }
   };
 

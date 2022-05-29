@@ -9,8 +9,6 @@ import { useSelector } from "react-redux";
 const Admin = () => {
   const surveyData = useSelector((state) => state.value);
 
-  console.log(surveyData);
-
   const [firstTimers, setFirstTimers] = useState(0);
   const [unlicensed, setUnlicensed] = useState(0);
   const [adolescents, setAdolescents] = useState(0);
