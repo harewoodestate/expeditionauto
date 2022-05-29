@@ -9,6 +9,8 @@ import { useSelector } from "react-redux";
 const Admin = () => {
   const surveyData = useSelector((state) => state.value);
 
+  console.log(surveyData);
+
   const [firstTimers, setFirstTimers] = useState(0);
   const [unlicensed, setUnlicensed] = useState(0);
   const [adolescents, setAdolescents] = useState(0);
@@ -90,7 +92,10 @@ const Admin = () => {
     let initialValue = 0;
 
     let sum = surveyData.reduce(function (previousValue, currentValue) {
-      return previousValue + currentValue.a7;
+      if (currentValue.a7) {
+        return previousValue + currentValue.a7;
+      }
+      return previousValue;
     }, initialValue);
 
     let count = 0;
@@ -106,7 +111,9 @@ const Admin = () => {
 
     count = arrayByFamilies.length;
 
-    setAverageCarsByFamily(sum / count);
+    console.log("This: ", sum);
+
+    setAverageCarsByFamily(Math.floor(sum / count));
   }, []);
 
   useEffect(() => {

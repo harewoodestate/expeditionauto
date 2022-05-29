@@ -32,14 +32,6 @@ function App() {
   const onNext = (answerData, childrenCount) => {
     const updatedData = { ...answersData, ...answerData };
     setAnswersData(updatedData);
-    // if (currentIndex < childrenCount) {
-    //   setCurrentIndex(currentIndex + 1);
-    // }
-    // // Logic compensates for Thank you component which makes children 9
-    // if (currentIndex === childrenCount - 1) {
-    //   onFinish(updatedData);
-    // }
-
     switch (true) {
       case answerData.a1 < 18:
         setCurrentIndex(9);
