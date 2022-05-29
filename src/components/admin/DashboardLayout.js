@@ -40,8 +40,8 @@ const BottomPane = styled.div`
   margin: 2em 1em 1em 1em;
 `;
 
-const DashboardLayout = ({ children }) => {
-  const [widgetOne, widgetTwo, widgetThree, widgetFour] = children;
+const DashboardLayout = (props) => {
+  const [widgetOne, widgetTwo, widgetThree, widgetFour] = props.children;
 
   return (
     <>
@@ -52,7 +52,11 @@ const DashboardLayout = ({ children }) => {
         <FourthWidget>{widgetFour}</FourthWidget>
       </Widgets>
       <BottomPane>
-        <General></General>
+        <General
+          targetablesAndFuel={props.targetablesAndFuel}
+          targetablesNotRWD={props.targetablesNotRWD}
+          averageCarsByFamily={props.averageCarsByFamily}
+        ></General>
       </BottomPane>
     </>
   );

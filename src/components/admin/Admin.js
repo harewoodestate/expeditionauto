@@ -16,6 +16,8 @@ const Admin = () => {
   const [adolescents, setAdolescents] = useState(0);
   const [targetables, setTargetables] = useState(0);
   const [targetablesAndFuel, setTargetablesAndFuel] = useState(0);
+  const [targetablesNotRWD, setTargetablesNotRWD] = useState(0);
+  const [averageCarsByFamily, setAverageCarsByFamily] = useState(0);
 
   useEffect(() => {
     const filterByFirstTimers = (item) => {
@@ -73,6 +75,40 @@ const Admin = () => {
     );
 
     setTargetablesAndFuel(arrayByTargetablesAndFuel.length);
+
+    const filterByTargetablesNotRWD = (item) => {
+      if (item.a8 && (item.a5 === "fwd" || item.a5 === "idk")) {
+        return true;
+      }
+      return false;
+    };
+
+    const arrayByTargetablesNotRWD = surveyData.filter(
+      filterByTargetablesNotRWD
+    );
+
+    setTargetablesNotRWD(arrayByTargetablesNotRWD.length);
+
+    let initialValue = 0;
+
+    let sum = surveyData.reduce(function (previousValue, currentValue) {
+      return previousValue + currentValue.a7;
+    }, initialValue);
+
+    let count = 0;
+
+    const filterByFamilies = (item) => {
+      if (item.a7) {
+        return true;
+      }
+      return false;
+    };
+
+    const arrayByFamilies = surveyData.filter(filterByFamilies);
+
+    count = arrayByFamilies.length;
+
+    setAverageCarsByFamily(sum / count);
   }, []);
 
   useEffect(() => {
@@ -84,7 +120,11 @@ const Admin = () => {
     };
   }, []);
   return (
-    <DashboardLayout targetablesAndFuel={targetablesAndFuel}>
+    <DashboardLayout
+      targetablesAndFuel={targetablesAndFuel}
+      targetablesNotRWD={targetablesNotRWD}
+      averageCarsByFamily={averageCarsByFamily}
+    >
       <Targetables targetables={targetables} />
       <FirstTimers firstTimers={firstTimers} />
       <Unlicensed unlicensed={unlicensed} />

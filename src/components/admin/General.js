@@ -16,11 +16,23 @@ const Heading = styled.h1`
   border-bottom: 1px solid #e1e5eb;
 `;
 
-const General = () => {
+const General = ({
+  targetablesAndFuel,
+  targetablesNotRWD,
+  averageCarsByFamily,
+}) => {
   return (
     <StyledFWidget>
       <Heading>General</Heading>
-      <p>Targetables who also care about fuel emissions: {""}</p>
+      <p>
+        Targetables who also care about fuel emissions: {targetablesAndFuel}
+      </p>
+
+      <p>
+        Targetables who chose FWD or I don't know for drivetrain:{" "}
+        {targetablesNotRWD}
+      </p>
+      <p>Average cars by family: {averageCarsByFamily}</p>
     </StyledFWidget>
   );
 };
