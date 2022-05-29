@@ -16,10 +16,11 @@ const Heading = styled.h1`
   border-bottom: 1px solid #e1e5eb;
 `;
 
-const Adolescents = () => {
+const Adolescents = ({ adolescents }) => {
   return (
     <StyledFWidget>
       <Heading>Adolescents</Heading>
+      <p>Number of Adolescents: {adolescents}</p>
     </StyledFWidget>
   );
 };

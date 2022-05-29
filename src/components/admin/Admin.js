@@ -12,6 +12,10 @@ const Admin = () => {
   console.log(surveyData);
 
   const [firstTimers, setFirstTimers] = useState(0);
+  const [unlicensed, setUnlicensed] = useState(0);
+  const [adolescents, setAdolescents] = useState(0);
+  const [targetables, setTargetables] = useState(0);
+  const [targetablesAndFuel, setTargetablesAndFuel] = useState(0);
 
   useEffect(() => {
     const filterByFirstTimers = (item) => {
@@ -24,6 +28,51 @@ const Admin = () => {
     const arrayByFirstTimer = surveyData.filter(filterByFirstTimers);
 
     setFirstTimers(arrayByFirstTimer.length);
+
+    const filterByUnlicensed = (item) => {
+      if (item.a3 === "no") {
+        return true;
+      }
+      return false;
+    };
+    const arrayByUnlicensed = surveyData.filter(filterByUnlicensed);
+
+    setUnlicensed(arrayByUnlicensed.length);
+
+    const filterByAdolescents = (item) => {
+      if (item.a1 < 18) {
+        return true;
+      }
+      return false;
+    };
+
+    const arrayByAdolescents = surveyData.filter(filterByAdolescents);
+
+    setAdolescents(arrayByAdolescents.length);
+
+    const filterByTargetables = (item) => {
+      if (item.a8) {
+        return true;
+      }
+      return false;
+    };
+
+    const arrayByTargetables = surveyData.filter(filterByTargetables);
+
+    setTargetables(arrayByTargetables.length);
+
+    const filterByTargetablesAndFuel = (item) => {
+      if (item.a8 && item.a6 === "yes") {
+        return true;
+      }
+      return false;
+    };
+
+    const arrayByTargetablesAndFuel = surveyData.filter(
+      filterByTargetablesAndFuel
+    );
+
+    setTargetablesAndFuel(arrayByTargetablesAndFuel.length);
   }, []);
 
   useEffect(() => {
@@ -35,11 +84,11 @@ const Admin = () => {
     };
   }, []);
   return (
-    <DashboardLayout>
-      <Targetables />
+    <DashboardLayout targetablesAndFuel={targetablesAndFuel}>
+      <Targetables targetables={targetables} />
       <FirstTimers firstTimers={firstTimers} />
-      <Unlicensed />
-      <Adolescents />
+      <Unlicensed unlicensed={unlicensed} />
+      <Adolescents adolescents={adolescents} />
     </DashboardLayout>
   );
 };

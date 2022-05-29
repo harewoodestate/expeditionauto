@@ -17,10 +17,11 @@ const Heading = styled.h1`
   border-bottom: 1px solid #e1e5eb;
 `;
 
-const Targetables = () => {
+const Targetables = ({ targetables }) => {
   return (
     <StyledFWidget>
       <Heading>Targetables</Heading>
+      <p>Number of Targetables: {targetables}</p>
     </StyledFWidget>
   );
 };

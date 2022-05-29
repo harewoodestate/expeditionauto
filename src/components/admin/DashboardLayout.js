@@ -41,15 +41,15 @@ const BottomPane = styled.div`
 `;
 
 const DashboardLayout = ({ children }) => {
-  const [topLeft, topRight, bottomRight, bottomLeft] = children;
+  const [widgetOne, widgetTwo, widgetThree, widgetFour] = children;
 
   return (
     <>
       <Widgets>
-        <FirstWidget>{topLeft}</FirstWidget>
-        <SecondWidget>{topRight}</SecondWidget>
-        <ThirdWidget>{bottomRight}</ThirdWidget>
-        <FourthWidget>{bottomLeft}</FourthWidget>
+        <FirstWidget>{widgetOne}</FirstWidget>
+        <SecondWidget>{widgetTwo}</SecondWidget>
+        <ThirdWidget>{widgetThree}</ThirdWidget>
+        <FourthWidget>{widgetFour}</FourthWidget>
       </Widgets>
       <BottomPane>
         <General></General>

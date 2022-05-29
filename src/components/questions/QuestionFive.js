@@ -13,15 +13,15 @@ const QuestionFive = ({ goToNext }) => {
   const [drivetrainAnswer, setDrivetrainAnswer] = useState();
 
   const handleFWD = () => {
-    setDrivetrainAnswer("FWD");
+    setDrivetrainAnswer("fwd");
   };
 
   const handleRWD = () => {
-    setDrivetrainAnswer("RWD");
+    setDrivetrainAnswer("rwd");
   };
 
   const handleIDK = () => {
-    setDrivetrainAnswer("IDK");
+    setDrivetrainAnswer("idk");
   };
 
   return (

@@ -20,6 +20,7 @@ const General = () => {
   return (
     <StyledFWidget>
       <Heading>General</Heading>
+      <p>Targetables who also care about fuel emissions: {""}</p>
     </StyledFWidget>
   );
 };

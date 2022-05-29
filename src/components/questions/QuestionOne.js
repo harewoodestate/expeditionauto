@@ -20,7 +20,7 @@ const QuestionOne = ({ goToNext }) => {
       <button
         onClick={(e) => {
           goToNext({
-            a1: ageAnswer.current.value,
+            a1: Number(ageAnswer.current.value),
           });
           e.preventDefault();
         }}

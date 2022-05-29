@@ -22,7 +22,7 @@ const QuestionSeven = ({ goToNext }) => {
       <button
         onClick={(e) => {
           goToNext({
-            a7: carsOwnedAnswer.current.value,
+            a7: Number(carsOwnedAnswer.current.value),
           });
           e.preventDefault();
         }}

@@ -16,10 +16,11 @@ const Heading = styled.h1`
   border-bottom: 1px solid #e1e5eb;
 `;
 
-const Unlicensed = () => {
+const Unlicensed = ({ unlicensed }) => {
   return (
     <StyledFWidget>
       <Heading>Unlicensed</Heading>
+      <p>Unlicensed: {unlicensed}</p>
     </StyledFWidget>
   );
 };

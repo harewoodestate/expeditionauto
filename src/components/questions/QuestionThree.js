@@ -17,7 +17,7 @@ const QuestionThree = ({ goToNext }) => {
   };
 
   const handleNo = () => {
-    setLicenseAnswer("prefer other transport");
+    setLicenseAnswer("no");
   };
 
   return (
