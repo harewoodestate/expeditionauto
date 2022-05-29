@@ -7,7 +7,7 @@ import store from "./store";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import DashboardLayout from "./components/admin/DashboardLayout";
+import Admin from "./components/admin/Admin";
 
 let persistor = persistStore(store);
 
@@ -19,7 +19,7 @@ root.render(
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<App />} />
-            <Route path="/admin" element={<DashboardLayout />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </BrowserRouter>
       </PersistGate>

@@ -16,12 +16,12 @@ const Heading = styled.h1`
   border-bottom: 1px solid #e1e5eb;
 `;
 
-const Adolescents = () => {
+const General = () => {
   return (
     <StyledFWidget>
-      <Heading>Adolescents</Heading>
+      <Heading>General</Heading>
     </StyledFWidget>
   );
 };
 
-export default Adolescents;
+export default General;

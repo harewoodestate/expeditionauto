@@ -1,25 +1,60 @@
 import styled from "styled-components";
+import General from "./General";
 
-const Layout = styled.div``;
+const Widgets = styled.div`
+  display: flex;
+  height: 50vh;
+  gap: 2em;
+  margin: 1em;
+  justify-content: space-evenly;
+`;
 
-const TopLeftPane = styled.div``;
+const FirstWidget = styled.div`
+  flex: 1;
+  width: 20%;
+  height: 100%;
+`;
 
-const TopRightPane = styled.div``;
+const SecondWidget = styled.div`
+  flex: 1;
+  width: 20%;
+  height: 100%;
+`;
 
-const BottomRightPane = styled.div``;
+const ThirdWidget = styled.div`
+  flex: 1;
+  width: 20%;
+  height: 100%;
+`;
 
-const BottomLeftPane = styled.div``;
+const FourthWidget = styled.div`
+  flex: 1;
+  width: 20%;
+  height: 100%;
+`;
+
+const BottomPane = styled.div`
+  flex: 4;
+  width: auto;
+  height: 80em;
+  margin: 2em 1em 1em 1em;
+`;
 
 const DashboardLayout = ({ children }) => {
   const [topLeft, topRight, bottomRight, bottomLeft] = children;
 
   return (
-    <Layout>
-      <TopLeftPane>{topLeft}</TopLeftPane>
-      <TopRightPane>{topRight}</TopRightPane>
-      <BottomRightPane>{bottomRight}</BottomRightPane>
-      <BottomLeftPane>{bottomLeft}</BottomLeftPane>
-    </Layout>
+    <>
+      <Widgets>
+        <FirstWidget>{topLeft}</FirstWidget>
+        <SecondWidget>{topRight}</SecondWidget>
+        <ThirdWidget>{bottomRight}</ThirdWidget>
+        <FourthWidget>{bottomLeft}</FourthWidget>
+      </Widgets>
+      <BottomPane>
+        <General></General>
+      </BottomPane>
+    </>
   );
 };
 
