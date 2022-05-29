@@ -15,7 +15,6 @@ const QuestionEight = ({ goToNext, carsOwned }) => {
   const [carModelAnswer, setCarModelAnswer] = useState("");
   const [carMakeAndModels, setCarMakeAndModels] = useState([]);
   const [numberOfCars, setNumberOfCars] = useState(carsOwned);
-  //const carModelAnswer = React.createRef();
 
   return (
     <StyledForm>
@@ -46,18 +45,17 @@ const QuestionEight = ({ goToNext, carsOwned }) => {
             model: `${carModelAnswer}`,
           };
 
-          let updatedCarMakeAndModel = {
-            ...carMakeAndModels,
-            ...carMakeAndModelsObject,
-          };
+          if (numberOfCars) {
+            let intermediateArray = carMakeAndModels;
 
-          setCarMakeAndModels(updatedCarMakeAndModel);
+            intermediateArray.push(carMakeAndModelsObject);
 
-          setNumberOfCars(Number(numberOfCars - 1));
+            setCarMakeAndModels(intermediateArray);
 
-          console.log(numberOfCars);
+            setNumberOfCars(Number(numberOfCars - 1));
 
-          if (!numberOfCars) {
+            setCarModelAnswer("");
+          } else {
             goToNext({
               a8: carMakeAndModels,
             });
