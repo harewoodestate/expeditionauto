@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const StyledFWidget = styled.div`
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 1em;
@@ -16,6 +18,12 @@ const Heading = styled.h1`
   border-bottom: 1px solid #e1e5eb;
 `;
 
+const Text = styled.p`
+  font-family: "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  text-align: center;
+`;
+
 const General = ({
   targetablesAndFuel,
   targetablesNotRWD,
@@ -24,15 +32,15 @@ const General = ({
   return (
     <StyledFWidget>
       <Heading>General</Heading>
-      <p>
+      <Text>
         Targetables who also care about fuel emissions: {targetablesAndFuel}
-      </p>
+      </Text>
 
-      <p>
+      <Text>
         Targetables who chose FWD or I don't know for drivetrain:{" "}
         {targetablesNotRWD}
-      </p>
-      <p>Average cars by family: {averageCarsByFamily}</p>
+      </Text>
+      <Text>Average cars by family: {averageCarsByFamily}</Text>
     </StyledFWidget>
   );
 };

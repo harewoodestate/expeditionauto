@@ -1,5 +1,11 @@
 import styled from "styled-components";
 import General from "./General";
+import { Link } from "react-router-dom";
+
+const Header = styled.header`
+  background-color: #282c34;
+  height: 4em;
+`;
 
 const Widgets = styled.div`
   display: flex;
@@ -36,7 +42,7 @@ const FourthWidget = styled.div`
 const BottomPane = styled.div`
   flex: 4;
   width: auto;
-  height: 80em;
+  height: 30em;
   margin: 2em 1em 1em 1em;
 `;
 
@@ -45,6 +51,11 @@ const DashboardLayout = (props) => {
 
   return (
     <>
+      <Header>
+        <Link className={`survey`} to="/">
+          {`<< To Survey`}
+        </Link>
+      </Header>
       <Widgets>
         <FirstWidget>{widgetOne}</FirstWidget>
         <SecondWidget>{widgetTwo}</SecondWidget>

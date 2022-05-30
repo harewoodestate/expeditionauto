@@ -24,18 +24,18 @@ const QuestionEight = ({ goToNext, carsOwned }) => {
       switch (false) {
         case carModelAnswer.toLowerCase().startsWith("m"):
           errorText.current = "Model must start with M";
-          setDisabled(true);
+          //setDisabled(true);
           console.log(carModelAnswer.substring(1, 3));
           break;
         case carModelAnswer.toLowerCase().endsWith("d") ||
           carModelAnswer.toLowerCase().endsWith("i"):
           errorText.current = "Model must end with d or i";
-          setDisabled(true);
+          //setDisabled(true);
           break;
         //TODO
         case carModelAnswer.match(new RegExp()):
           errorText.current = "Model must have 3 numbers e.g. M340i";
-          setDisabled(true);
+          //setDisabled(true);
           break;
         default:
           setDisabled(false);

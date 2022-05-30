@@ -80,8 +80,10 @@ function App() {
 
   return (
     <>
+      <Link className={`login`} to="/admin">
+        Login
+      </Link>
       <LogoImage />
-      <Link to="/admin">Admin</Link>
       <QuestionLayout>
         <QuestionImage />
         <ControlledFlowQuestion

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const StyledFWidget = styled.div`
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 1em;
@@ -16,11 +18,17 @@ const Heading = styled.h1`
   border-bottom: 1px solid #e1e5eb;
 `;
 
+const Text = styled.p`
+  font-family: "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  text-align: center;
+`;
+
 const FirstTimers = ({ firstTimers }) => {
   return (
     <StyledFWidget>
       <Heading>First Timers</Heading>
-      <p>First Timers between 18 &amp; 25: {firstTimers}</p>
+      <Text>First Timers between 18 &amp; 25: {firstTimers}</Text>
     </StyledFWidget>
   );
 };

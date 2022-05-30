@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const StyledFWidget = styled.div`
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
   background-clip: initial;
   border: 1px solid rgba(0, 0, 0, 0.125);
@@ -17,11 +19,17 @@ const Heading = styled.h1`
   border-bottom: 1px solid #e1e5eb;
 `;
 
+const Text = styled.p`
+  font-family: "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  text-align: center;
+`;
+
 const Targetables = ({ targetables }) => {
   return (
     <StyledFWidget>
       <Heading>Targetables</Heading>
-      <p>Number of Targetables: {targetables}</p>
+      <Text>Number of Targetables: {targetables}</Text>
     </StyledFWidget>
   );
 };
