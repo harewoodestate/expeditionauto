@@ -1,18 +1,17 @@
 import styled from "styled-components";
 
-const Image = styled.img`
+const Image = styled.div`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  background-image: url("/image${(props) => props.imageNumber}.jpg");
+  background-repeat: no-repeat;
+  background-size: 35vw 100vh;
+  object-fit: contain;
   border-radius: 2em 0 0 2em;
 `;
 
-Image.defaultProps = {
-  src: "/image0.jpg",
-};
-
-const QuestionImage = () => {
-  return <Image />;
+const QuestionImage = ({ imageNumber }) => {
+  return <Image imageNumber={imageNumber} />;
 };
 
 export default QuestionImage;

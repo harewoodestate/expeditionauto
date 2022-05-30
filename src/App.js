@@ -85,7 +85,7 @@ function App() {
       </Link>
       <LogoImage />
       <QuestionLayout>
-        <QuestionImage />
+        <QuestionImage imageNumber={currentIndex} />
         <ControlledFlowQuestion
           currentIndex={currentIndex}
           onNext={onNext}

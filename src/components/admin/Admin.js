@@ -18,8 +18,6 @@ const Admin = () => {
   const [averageCarsByFamily, setAverageCarsByFamily] = useState(0);
   const totalSurveys = surveyData.length;
 
-  console.log(surveyData);
-
   useEffect(() => {
     const filterByFirstTimers = (item) => {
       if (item.a1 >= 18 && item.a1 <= 25 && item.a4 === "yes") {
