@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import React from "react";
 
 const StyledForm = styled.div`
@@ -15,6 +15,33 @@ const QuestionEight = ({ goToNext, carsOwned }) => {
   const [carModelAnswer, setCarModelAnswer] = useState("");
   const [carMakeAndModels, setCarMakeAndModels] = useState([]);
   const [numberOfCars, setNumberOfCars] = useState(carsOwned);
+  const [disabled, setDisabled] = useState(false);
+  const error = useRef(true);
+  const errorText = useRef("");
+
+  useEffect(() => {
+    if (carMakeAnswer === "BMW") {
+      switch (false) {
+        case carModelAnswer.toLowerCase().startsWith("m"):
+          errorText.current = "Model must start with M";
+          setDisabled(true);
+          console.log(carModelAnswer.substring(1, 3));
+          break;
+        case carModelAnswer.toLowerCase().endsWith("d") ||
+          carModelAnswer.toLowerCase().endsWith("i"):
+          errorText.current = "Model must end with d or i";
+          setDisabled(true);
+          break;
+        //TODO
+        case carModelAnswer.match(new RegExp()):
+          errorText.current = "Model must have 3 numbers e.g. M340i";
+          setDisabled(true);
+          break;
+        default:
+          setDisabled(false);
+      }
+    }
+  }, [carModelAnswer, carMakeAnswer]);
 
   return (
     <StyledForm>
@@ -31,7 +58,7 @@ const QuestionEight = ({ goToNext, carsOwned }) => {
       <input
         name="model"
         type="text"
-        onChange={(e) => setCarModelAnswer(e.target.value)}
+        onInput={(e) => setCarModelAnswer(e.target.value)}
         placeholder={`Enter your ${carMakeAnswer} Model Number`}
       />
       <p className="message">
@@ -39,6 +66,7 @@ const QuestionEight = ({ goToNext, carsOwned }) => {
           "Click next to finish"}
       </p>
       <button
+        disabled={disabled}
         onClick={(e) => {
           let carMakeAndModelsObject = {
             make: `${carMakeAnswer}`,
@@ -65,6 +93,7 @@ const QuestionEight = ({ goToNext, carsOwned }) => {
       >
         Next
       </button>
+      {error && <p className="error-message">{`${errorText.current}`}</p>}
     </StyledForm>
   );
 };
