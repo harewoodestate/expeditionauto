@@ -9,8 +9,6 @@ import { useSelector } from "react-redux";
 const Admin = () => {
   const surveyData = useSelector((state) => state.value);
 
-  console.log(surveyData);
-
   const [firstTimers, setFirstTimers] = useState(0);
   const [unlicensed, setUnlicensed] = useState(0);
   const [adolescents, setAdolescents] = useState(0);
@@ -18,6 +16,9 @@ const Admin = () => {
   const [targetablesAndFuel, setTargetablesAndFuel] = useState(0);
   const [targetablesNotRWD, setTargetablesNotRWD] = useState(0);
   const [averageCarsByFamily, setAverageCarsByFamily] = useState(0);
+  const totalSurveys = surveyData.length;
+
+  console.log(surveyData);
 
   useEffect(() => {
     const filterByFirstTimers = (item) => {
@@ -111,8 +112,6 @@ const Admin = () => {
 
     count = arrayByFamilies.length;
 
-    console.log("This: ", sum);
-
     setAverageCarsByFamily(Math.floor(sum / count));
   }, []);
 
@@ -130,10 +129,10 @@ const Admin = () => {
       targetablesNotRWD={targetablesNotRWD}
       averageCarsByFamily={averageCarsByFamily}
     >
-      <Targetables targetables={targetables} />
-      <FirstTimers firstTimers={firstTimers} />
-      <Unlicensed unlicensed={unlicensed} />
-      <Adolescents adolescents={adolescents} />
+      <Targetables targetables={targetables} totalSurveys={totalSurveys} />
+      <FirstTimers firstTimers={firstTimers} totalSurveys={totalSurveys} />
+      <Unlicensed unlicensed={unlicensed} totalSurveys={totalSurveys} />
+      <Adolescents adolescents={adolescents} totalSurveys={totalSurveys} />
     </DashboardLayout>
   );
 };

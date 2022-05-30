@@ -25,11 +25,21 @@ const Text = styled.p`
   text-align: center;
 `;
 
-const Targetables = ({ targetables }) => {
+const Percentage = styled.p`
+  font-family: "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  text-align: center;
+  font-size: 3em;
+  font-weight: bold;
+`;
+
+const Targetables = ({ targetables, totalSurveys }) => {
   return (
     <StyledFWidget>
       <Heading>Targetables</Heading>
       <Text>Number of Targetables: {targetables}</Text>
+      <Text>Percentage of Targetables:</Text>
+      <Percentage>{Math.floor((targetables / totalSurveys) * 100)}%</Percentage>
     </StyledFWidget>
   );
 };

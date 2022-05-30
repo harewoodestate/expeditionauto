@@ -24,11 +24,21 @@ const Text = styled.p`
   text-align: center;
 `;
 
-const Unlicensed = ({ unlicensed }) => {
+const Percentage = styled.p`
+  font-family: "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  text-align: center;
+  font-size: 3em;
+  font-weight: bold;
+`;
+
+const Unlicensed = ({ unlicensed, totalSurveys }) => {
   return (
     <StyledFWidget>
       <Heading>Unlicensed</Heading>
       <Text>Unlicensed: {unlicensed}</Text>
+      <Text>Percentage of Unlicensed:</Text>
+      <Percentage>{Math.floor((unlicensed / totalSurveys) * 100)}%</Percentage>
     </StyledFWidget>
   );
 };

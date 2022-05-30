@@ -24,11 +24,21 @@ const Text = styled.p`
   text-align: center;
 `;
 
-const FirstTimers = ({ firstTimers }) => {
+const Percentage = styled.p`
+  font-family: "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  text-align: center;
+  font-size: 3em;
+  font-weight: bold;
+`;
+
+const FirstTimers = ({ firstTimers, totalSurveys }) => {
   return (
     <StyledFWidget>
       <Heading>First Timers</Heading>
       <Text>First Timers between 18 &amp; 25: {firstTimers}</Text>
+      <Text>Percentage of Adolescents:</Text>
+      <Percentage>{Math.floor((firstTimers / totalSurveys) * 100)}%</Percentage>
     </StyledFWidget>
   );
 };

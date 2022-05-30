@@ -24,11 +24,21 @@ const Text = styled.p`
   text-align: center;
 `;
 
-const Adolescents = ({ adolescents }) => {
+const Percentage = styled.p`
+  font-family: "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  text-align: center;
+  font-size: 3em;
+  font-weight: bold;
+`;
+
+const Adolescents = ({ adolescents, totalSurveys }) => {
   return (
     <StyledFWidget>
       <Heading>Adolescents</Heading>
       <Text>Number of Adolescents: {adolescents}</Text>
+      <Text>Percentage of Adolescents:</Text>
+      <Percentage>{Math.floor((adolescents / totalSurveys) * 100)}%</Percentage>
     </StyledFWidget>
   );
 };
