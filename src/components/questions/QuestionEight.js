@@ -20,26 +20,41 @@ const QuestionEight = ({ goToNext, carsOwned }) => {
   const errorText = useRef("");
 
   useEffect(() => {
-    if (carMakeAnswer === "BMW") {
-      switch (false) {
-        case carModelAnswer.toLowerCase().startsWith("m"):
-          errorText.current = "Model must start with M";
-          //setDisabled(true);
-          console.log(carModelAnswer.substring(1, 3));
-          break;
-        case carModelAnswer.toLowerCase().endsWith("d") ||
-          carModelAnswer.toLowerCase().endsWith("i"):
-          errorText.current = "Model must end with d or i";
-          //setDisabled(true);
-          break;
-        //TODO
-        case carModelAnswer.match(new RegExp()):
-          errorText.current = "Model must have 3 numbers e.g. M340i";
-          //setDisabled(true);
-          break;
-        default:
+    const bmwRe = /^[m]?\d{3}[i|d]?$/i;
+    const mercedesRe = /^[\w]\d{3}$/i;
+    const audiRe = /^[aqr][\d]$/i;
+
+    switch (true) {
+      case carMakeAnswer === "BMW":
+        if (!bmwRe.test(carModelAnswer) && carModelAnswer !== "") {
+          errorText.current = "Valid Model formats: M420d/i, 420d/i or 420";
+          setDisabled(true);
+        } else {
+          errorText.current = "";
           setDisabled(false);
-      }
+        }
+        break;
+      case carMakeAnswer === "Mercedes":
+        if (!mercedesRe.test(carModelAnswer) && carModelAnswer !== "") {
+          errorText.current = "Valid Model formats: C300, S500 or E350";
+          setDisabled(true);
+        } else {
+          errorText.current = "";
+          setDisabled(false);
+        }
+        break;
+      case carMakeAnswer === "Audi":
+        if (!audiRe.test(carModelAnswer) && carModelAnswer !== "") {
+          errorText.current = "Valid Model formats: A5, Q5 or R8";
+          setDisabled(true);
+        } else {
+          errorText.current = "";
+          setDisabled(false);
+        }
+        break;
+      default:
+        errorText.current = "";
+        setDisabled(false);
     }
   }, [carModelAnswer, carMakeAnswer]);
 
@@ -53,7 +68,6 @@ const QuestionEight = ({ goToNext, carsOwned }) => {
         <option value="BMW">BMW</option>
         <option value="Mercedes">Mercedes</option>
         <option value="Audi">Audi</option>
-        <option value="Ferrari">Ferrari</option>
       </select>
       <input
         name="model"

@@ -19,6 +19,7 @@ const Admin = () => {
   const totalSurveys = surveyData.length;
 
   useEffect(() => {
+    // Gets length of first timers array and sets firstTimers state
     const filterByFirstTimers = (item) => {
       if (item.a1 >= 18 && item.a1 <= 25 && item.a4 === "yes") {
         return true;
@@ -30,6 +31,7 @@ const Admin = () => {
 
     setFirstTimers(arrayByFirstTimer.length);
 
+    // Gets length of Unlicensed persons array and sets unlicensed state
     const filterByUnlicensed = (item) => {
       if (item.a3 === "no") {
         return true;
@@ -40,6 +42,7 @@ const Admin = () => {
 
     setUnlicensed(arrayByUnlicensed.length);
 
+    // Gets length of adolescent persons array and sets adolescent state
     const filterByAdolescents = (item) => {
       if (item.a1 < 18) {
         return true;
@@ -51,6 +54,7 @@ const Admin = () => {
 
     setAdolescents(arrayByAdolescents.length);
 
+    // Gets length of targetable persons array and sets targetable state
     const filterByTargetables = (item) => {
       if (item.a8) {
         return true;
@@ -62,6 +66,7 @@ const Admin = () => {
 
     setTargetables(arrayByTargetables.length);
 
+    // Gets number of targetable persons interested in fuel emissions and sets targetablesAndFuel state
     const filterByTargetablesAndFuel = (item) => {
       if (item.a8 && item.a6 === "yes") {
         return true;
@@ -75,6 +80,7 @@ const Admin = () => {
 
     setTargetablesAndFuel(arrayByTargetablesAndFuel.length);
 
+    // Gets number of targetable persons who prefer not to have a RWD and sets targetablesNotRWD state
     const filterByTargetablesNotRWD = (item) => {
       if (item.a8 && (item.a5 === "fwd" || item.a5 === "idk")) {
         return true;
@@ -90,6 +96,7 @@ const Admin = () => {
 
     let initialValue = 0;
 
+    // Gets the total of all cars owned from surveyData data
     let sum = surveyData.reduce(function (previousValue, currentValue) {
       if (currentValue.a7) {
         return previousValue + currentValue.a7;
@@ -99,6 +106,7 @@ const Admin = () => {
 
     let count = 0;
 
+    // Gets the total number of families from surveyData data and sets averageCarsByFamily state
     const filterByFamilies = (item) => {
       if (item.a7) {
         return true;
