@@ -8,7 +8,12 @@ const Image = styled.img`
 `;
 
 const QuestionImage = ({ imageNumber }) => {
-  return <Image src={`/image${imageNumber}-min.jpg`} />;
+  return (
+    <Image
+      src={`/image${imageNumber}-min.jpg`}
+      alt={`Question ${imageNumber} image`}
+    />
+  );
 };
 
 export default QuestionImage;
