@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import General from "./General";
 import { Link } from "react-router-dom";
-import DoughnutChart from "../../charts/DoughnutChart";
 
 const Header = styled.header`
   background-color: #282c34;
@@ -43,7 +42,7 @@ const FourthWidget = styled.div`
 const BottomPane = styled.div`
   flex: 4;
   width: auto;
-  height: 30em;
+  height: 18em;
   margin: 2em 1em 1em 1em;
 `;
 
@@ -53,8 +52,11 @@ const DashboardLayout = (props) => {
   return (
     <>
       <Header>
-        <Link className={`survey`} to="/">
+        <Link className={`nav-button`} to="/">
           {`<< To Survey`}
+        </Link>
+        <Link className={`nav-button`} to="/data">
+          {`View Data`}
         </Link>
       </Header>
       <Widgets>
@@ -65,6 +67,7 @@ const DashboardLayout = (props) => {
       </Widgets>
       <BottomPane>
         <General
+          surveyData={props.surveyData}
           targetablesAndFuel={props.targetablesAndFuel}
           targetablesNotRWD={props.targetablesNotRWD}
           averageCarsByFamily={props.averageCarsByFamily}

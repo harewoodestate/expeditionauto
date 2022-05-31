@@ -95,8 +95,6 @@ const QuestionEight = ({ goToNext, carsOwned }) => {
             setCarMakeAndModels(intermediateArray);
 
             setNumberOfCars(Number(numberOfCars - 1));
-
-            setCarModelAnswer("");
           } else {
             goToNext({
               a8: carMakeAndModels,

@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Chart, CategoryScale, LinearScale, BarElement } from "chart.js";
+Chart.register(CategoryScale, LinearScale, BarElement);
 
 const StyledFWidget = styled.div`
   display: flex;
@@ -28,6 +30,7 @@ const General = ({
   targetablesAndFuel,
   targetablesNotRWD,
   averageCarsByFamily,
+  surveyData,
 }) => {
   return (
     <StyledFWidget>

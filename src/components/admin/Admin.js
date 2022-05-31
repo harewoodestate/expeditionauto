@@ -119,6 +119,25 @@ const Admin = () => {
     count = arrayByFamilies.length;
 
     setAverageCarsByFamily(Math.floor(sum / count));
+
+    // Gets BMW data
+    // const filterByBMW = (item) => {
+    //   if (item.a8) {
+    //     let arr = item.map((x) => item.a8);
+    //     // let arr = item.a8;
+    //     // console.log(item.a8);
+    //     //.map((y, i) => y[i].make === "Mercedes")
+    //     return arr;
+    //     //arr.filter((brand, i) => brand[0].make === "Mercedes");
+    //   }
+    //   //.filter((x, i) => x[5].a8[0].make)
+    // };
+    const bmwArray = surveyData
+      .filter((x) => x.a8)
+      .filter((y) => y.make === "Audi");
+    //const arr = bmwArray;
+    console.log(bmwArray);
+    //console.log(bmwArray[5].a8[0].make);
   }, []);
 
   useEffect(() => {
@@ -134,6 +153,7 @@ const Admin = () => {
       targetablesAndFuel={targetablesAndFuel}
       targetablesNotRWD={targetablesNotRWD}
       averageCarsByFamily={averageCarsByFamily}
+      surveyData={surveyData}
     >
       <Targetables targetables={targetables} totalSurveys={totalSurveys} />
       <FirstTimers firstTimers={firstTimers} totalSurveys={totalSurveys} />
