@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import General from "./General";
 import { Link } from "react-router-dom";
+import DoughnutChart from "../../charts/DoughnutChart";
 
 const Header = styled.header`
   background-color: #282c34;

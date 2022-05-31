@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import DoughnutChart from "../../charts/DoughnutChart";
+import { Chart, ArcElement } from "chart.js";
+Chart.register(ArcElement);
 
 const StyledFWidget = styled.div`
   display: flex;
@@ -28,18 +31,41 @@ const Text = styled.p`
 const Percentage = styled.p`
   font-family: "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
-  text-align: center;
   font-size: 3em;
   font-weight: bold;
+  align-self: center;
+  justify-self: center;
+`;
+
+const ChartWrapper = styled.div`
+  display: flex;
+  width: 14em;
+  gap: 1em;
+  justify-self: center;
+  margin-left: 2em;
 `;
 
 const Targetables = ({ targetables, totalSurveys }) => {
+  const data = {
+    labels: ["Targetables", "Other"],
+    datasets: [
+      {
+        data: [targetables, totalSurveys - targetables],
+        backgroundColor: ["#3d5170", "#dddddd"],
+      },
+    ],
+  };
   return (
     <StyledFWidget>
       <Heading>Targetables</Heading>
       <Text>Number of Targetables: {targetables}</Text>
       <Text>Percentage of Targetables:</Text>
-      <Percentage>{Math.floor((targetables / totalSurveys) * 100)}%</Percentage>
+      <ChartWrapper>
+        <DoughnutChart data={data} />
+        <Percentage>
+          {Math.floor((targetables / totalSurveys) * 100)}%
+        </Percentage>
+      </ChartWrapper>
     </StyledFWidget>
   );
 };

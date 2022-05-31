@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import DoughnutChart from "../../charts/DoughnutChart";
 
 const StyledFWidget = styled.div`
   display: flex;
@@ -30,15 +31,39 @@ const Percentage = styled.p`
   text-align: center;
   font-size: 3em;
   font-weight: bold;
+  align-self: center;
+  justify-self: center;
+`;
+
+const ChartWrapper = styled.div`
+  display: flex;
+  width: 14em;
+  gap: 1em;
+  justify-self: center;
+  margin-left: 2em;
 `;
 
 const Adolescents = ({ adolescents, totalSurveys }) => {
+  const data = {
+    labels: ["First Timers", "Other"],
+    datasets: [
+      {
+        data: [adolescents, totalSurveys - adolescents],
+        backgroundColor: ["#3d5170", "#dddddd"],
+      },
+    ],
+  };
   return (
     <StyledFWidget>
       <Heading>Adolescents</Heading>
       <Text>Number of Adolescents: {adolescents}</Text>
       <Text>Percentage of Adolescents:</Text>
-      <Percentage>{Math.floor((adolescents / totalSurveys) * 100)}%</Percentage>
+      <ChartWrapper>
+        <DoughnutChart data={data} />
+        <Percentage>
+          {Math.floor((adolescents / totalSurveys) * 100)}%
+        </Percentage>
+      </ChartWrapper>
     </StyledFWidget>
   );
 };
